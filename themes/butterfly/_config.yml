@@ -476,7 +476,10 @@ search:
   # leave it empty if you don't need search
   use:
   placeholder:
-
+  path: search.xml
+  field: post
+  content: true
+  format: html
   # Algolia Search
   algolia_search:
     # Number of search results per page

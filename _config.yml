@@ -9,7 +9,7 @@ description: 'AL-Shoukaku 的技术博客，用来记录与分享学到的技术
 keywords:
 author: AL-Shoukaku
 language: zh-CN
-timezone: 'Asia/Beijing'
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

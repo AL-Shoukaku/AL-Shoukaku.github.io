@@ -1,6 +1,6 @@
 ---
-title: 2025 MIT 6.1810 Lab 1 Xv6 and Unix Utilities
-date: 2026-08-23
+title: 2025 MIT 6.1810 Lab 1:Xv6 and Unix Utilities
+date: 2026-08-23 20:00:00
 tags:
   - MIT 6.1810
   - 操作系统
