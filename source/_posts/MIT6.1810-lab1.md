@@ -16,6 +16,8 @@ description: 我的 MIT 6.1810 的 lab1 全记录，主题是启动 xv6 和实�
 
 作为 MIT 6.1810 的第一个实验，本 lab 的主要目的是配置与熟悉 xv6 的开发环境，核心内容是实现 5 个 Unix 工具：`sleep`、`sixfive`、`memdump`、`find` 和 `find -exec`。
 
+详细的代码实现在[我的 GitHub 仓库](https://github.com/AL-Shoukaku/xv6-2025)
+
 ---
 
 ## 详细实现
@@ -24,7 +26,7 @@ description: 我的 MIT 6.1810 的 lab1 全记录，主题是启动 xv6 和实�
 
 这部分主要是**配置开发环境**并学会**启动 xv6**。我选择在 Windows 11 上使用 **WSL2（Ubuntu 24.04）** 进行开发，这也是官方推荐的实验环境之一。
 
-WSL2的安装可以参考[官方文档](https://learn.microsoft.com/zh-cn/windows/wsl/install)
+WSL2 的安装可以参考[官方文档](https://learn.microsoft.com/zh-cn/windows/wsl/install)
 
 #### 环境配置
 
