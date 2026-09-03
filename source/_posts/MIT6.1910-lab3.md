@@ -18,6 +18,8 @@ Lab 3 的主题是 xv6 中的**页表机制**。
 
 我们将在本实验中学习 xv6 的内存管理机制，包括**三级页表**结构、**内核空间**与**用户空间**的地址结构及映射方式、**权限位**的设置与使用等。此外，我们还会在 xv6 原有的基础上实现**超级页(superpage)**功能。
 
+详细的代码实现在[我的 GitHub 仓库](https://github.com/AL-Shoukaku/xv6-2025)
+
 ---
 
 ## 详细实现
@@ -116,8 +118,8 @@ xv6 中的系统调用 `getpid()` 用于根据当前进程的 `struct proc` 结�
 
 要想实现这个功能必须基于几个内存管理相关的内核态函数：
 
-**kernel/vm.c**
 ```c
+// kernel/vm.c
 pte_t *
 walk(pagetable_t pagetable, uint64 va, int alloc)
 {
@@ -238,9 +240,8 @@ freewalk(pagetable_t pagetable)
 
 `freewalk()` 函数用于递归释放所有页表。如果当前是有效的非叶子页表项，则置 0 并递归调用 `freewalk()` 来释放下一级页表，并在遍历完后释放该页表对应的物理页；如果是叶子页表项，则**要求已经取消映射，否则直接 panic**。
 
-**kernel/kalloc.c**
 ```c
-
+// kernel/kalloc.c
 void
 kfree(void *pa)
 {
