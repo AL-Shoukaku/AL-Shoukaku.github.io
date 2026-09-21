@@ -1062,8 +1062,11 @@ css_prefix: true
 inject:
   head:
     - '<link rel="stylesheet" href="/css/blue-mode.css">'
-    # 尽早应用已保存的蓝色模式，避免刷新时闪一下浅色（主题自带的初始化只认 light/dark）
-    - "<script>(function(){try{var d=JSON.parse(localStorage.getItem('theme')||'null');if(d&&d.value==='blue')document.documentElement.setAttribute('data-theme','blue')}catch(e){}})()</script>"
+    # 蓝色为【默认模式】：没有保存过选择时（首次访问）用蓝色；
+    # 保存过 light/dark 时尊重用户自己的选择。
+    # 主题自带的初始化脚本只认 light/dark，这里补上 blue；
+    # 它执行在主题初始化之后、页面渲染之前，所以不会闪屏。
+    - "<script>(function(){try{var d=JSON.parse(localStorage.getItem('theme')||'null');var v=d&&d.value;if(!v||v==='blue')document.documentElement.setAttribute('data-theme','blue')}catch(e){}})()</script>"
   bottom:
     - <script src="/js/blue-mode.js"></script>
 

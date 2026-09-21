@@ -1,8 +1,9 @@
 /**
  * 蓝色模式扩展
  *
- * 作用：把主题右下角的"月亮"按钮，从「日间 ⇄ 夜间」二选一，
+ * 作用：把主题右下角的按钮，从「日间 ⇄ 夜间」二选一，
  *       改成「日间 → 夜间 → 蓝色 → 日间」三态循环。
+ *       其中【蓝色为默认模式】：首次访问（没有保存过选择）时进入蓝色。
  *
  * 实现：通过 _config.butterfly.yml 的 inject 注入，不改主题源码，
  *       主题升级时这份定制不会丢失。
@@ -75,10 +76,10 @@
   if (saved && MODES.indexOf(saved) !== -1) {
     applyTheme(saved)
   } else {
-    // 首次访问、还没有保存过选择时，也要把图标换成太阳/月亮
-    // （主题默认用的是 fa-adjust，白天黑夜共用一个图标）
-    var cur = document.documentElement.getAttribute('data-theme')
-    updateButton(MODES.indexOf(cur) !== -1 ? cur : 'light')
+    // 没有保存过选择（首次访问）→ 默认使用蓝色模式
+    // （头部注入的内联脚本已提前设好 data-theme 防闪屏，这里再执行一次
+    //   以同步按钮图标与提示文字）
+    applyTheme('blue')
   }
 
   // 2) 捕获阶段拦截"月亮"按钮的点击，实现三态循环
