@@ -1,0 +1,55 @@
+/* ============================================================
+   蓝色模式 —— 通过 [data-theme='blue'] 覆盖主题 CSS 变量
+   说明：butterfly 用 CSS 变量控制配色，这里只覆盖必要变量，
+         其它（按钮色、分割线等）继承主题本身的蓝色调。
+
+   两个关键变量：
+     --global-bg  页面底色（body）
+     --card-bg    卡片 / 文章正文的背景
+                  （见 _page/common.styl: .layout > div:first-child:not(.nc)
+                    会 @extend .cardHover，正文卡片用的就是它）
+   ============================================================ */
+
+html[data-theme='blue'] {
+  /* 页面底色 / 卡片（正文）背景 */
+  --global-bg: #cfe3f7;
+  --card-bg: #e4f1fc;
+  --zoom-bg: #e4f1fc;
+  --preloader-bg: #cfe3f7;
+
+  /* 正文文字 */
+  --font-color: #16344f;
+  --text-highlight-color: #16344f;
+  --card-meta: #4d7ea8;
+  --blockquote-color: #2f5f8c;
+  --toc-link-color: #2f5f8c;
+  --dark-grey: #8db0d0;
+
+  /* 侧边栏 */
+  --sidebar-bg: #c2daf1;
+  --sidebar-menu-bg: #e4f1fc;
+
+  /* 搜索框 */
+  --search-bg: #e4f1fc;
+  --search-input-color: #16344f;
+  --search-a-color: #2a5d8f;
+
+  /* 标签页 (tabs) */
+  --tab-border-color: #b3d0ea;
+  --tab-button-bg: #c2daf1;
+  --tab-button-active-bg: #e4f1fc;
+  --tab-button-color: #16344f;
+  --tab-button-hover-bg: #d3e6f7;
+}
+
+/* 兜底：确保整页背景确实变蓝（防止 --global-bg 未覆盖到 body） */
+html[data-theme='blue'] body {
+  background-color: #cfe3f7;
+}
+
+/* 正文里少数写死浅色的元素（键盘按键），顺手适配 */
+html[data-theme='blue'] .container kbd {
+  border-color: #9dbfdd;
+  background-color: #d3e6f7;
+  color: #16344f;
+}
