@@ -6,7 +6,7 @@ tags:
   - 操作系统
 categories:
   - MIT 6.1810
-description: 我的 MIT 6.1810 的 lab5 全记录，主题是写时复制计数
+description: 我的 MIT 6.1810 的 lab5 全记录，主题是写时复制技术
 ---
 # MIT 6.1810 Lab 5: Copy-on-Write Fork for xv6
 
