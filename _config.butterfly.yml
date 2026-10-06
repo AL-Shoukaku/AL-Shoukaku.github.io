@@ -1095,7 +1095,8 @@ CDN:
     # artalk_css:
     # artalk_js:
     # blueimp_md5:
-    # busuanzi:
+    # 使用本地客户端连接新统计服务；复用 Butterfly 的计数元素。
+    busuanzi: /js/visit-counter.js
     # canvas_fluttering_ribbon:
     # canvas_nest:
     # canvas_ribbon:
